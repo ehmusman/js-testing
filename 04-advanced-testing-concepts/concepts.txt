@@ -1,0 +1,5 @@
+// toBe is used for exactly matching the value equal to each other. its mostly used for premitive datatypes.
+
+// toEqual() is used for deep comparison. its used for reference datatypes. it will check all the key value pairs deeply
+
+// both looks equal but behaves differently under the hood
