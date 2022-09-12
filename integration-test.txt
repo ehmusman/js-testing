@@ -1,0 +1,5 @@
+in case of integration test we combine 2 or more unit tests.
+
+for a thumb rule we can say that, the integration test is used when a function that we are testing is calling another function for getting some types of data.
+
+in this scnerio the integration tests are used
