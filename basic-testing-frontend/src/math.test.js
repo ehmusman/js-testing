@@ -1,62 +1,64 @@
-import { it, expect } from "vitest"
-import { add } from "./math"
+import { it, expect } from 'vitest';
 
-it("Should summarize all number values in an array", () => {
-    // arrange
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
-    const expectedResult = numbers.reduce((a, b) => a + b, 0)
+import { add } from './math';
 
-    // act
-    const result = add(numbers)
+it('should summarize all number values in an array', () => {
+  // Arrange
+  const numbers = [1, 2];
 
-    //Assert
-    expect(result).toBe(expectedResult)
-})
+  // Act
+  const result = add(numbers);
 
-it("Should yield NaN if at least one invalid number is provides", () => {
-    const numbers = ['invalid', 1, 2]
-    const result = add(numbers)
+  // Assert
+  const expectedResult = numbers.reduce(
+    (prevValue, curValue) => prevValue + curValue,
+    0
+  );
+  expect(result).toBe(expectedResult);
+});
 
-    expect(result).toBeNaN()
-})
+it('should yield NaN if a least one invalid number is provided', () => {
+  const inputs = ['invalid', 1];
 
-it("Should yield a correct sum if an array of numeric string value is provided", () => {
-    const numbers = ['1', '2']
-    const result = add(numbers)
-    const expectedResult = numbers.reduce((a, b) => +a + +b, 0)
-    expect(result).toBe(expectedResult)
-})
+  const result = add(inputs);
 
-it('should yield 0 if an empty array is provides', () => {
-    const numbers = []
-    const result = add(numbers)
-    expect(result).toBe(0)
-})
+  expect(result).toBeNaN();
+});
 
-it('should throw an error if no value is passed to the function', () => {
-    // point to be noted, in javascript are not returned, but these are throwned.
-    // so to catch these we can use trycarch in test cases. like
+it('should yield a correct sum if an array of numeric string values is provided', () => {
+  const numbers = ['1', '2'];
 
-    // try {
-    //     const result = add()
-    // } catch (error) {
-    //     expect(error).toBeDefined()
-    // }
+  const result = add(numbers);
 
-    // we also have another approach
-    const resultFn = () => {
-        add()
-    }
-    expect(resultFn).toThrow() // we can also add not() after expect to inverse the result
-    // expect(resultFn).not().toThrow()
+  const expectedResult = numbers.reduce(
+    (prevValue, curValue) => +prevValue + +curValue,
+    0
+  );
+  expect(result).toBe(expectedResult);
+});
 
-})
+it('should yield 0 if an empty array is provided', () => {
+  const numbers = [];
 
-it('should throw an error if provided multiple arguments instead of an array', () => {
-    const num1 = 1;
-    const num2 = 2;
-    const resultFn = () => {
-        add(num1, num2)
-    }
-    expect(resultFn).toThrow(/is not iterable/)
-})
+  const result = add(numbers);
+
+  expect(result).toBe(0);
+});
+
+it('should throw an error if no value is passed into the function', () => {
+  const resultFn = () => {
+    add();
+  };
+  expect(resultFn).toThrow(/is not iterable/);
+});
+
+it('should throw an error if provided with multiple arguments instead of an array', () => {
+  const num1 = 1;
+  const num2 = 2;
+
+  const resultFn = () => {
+    add(num1, num2);
+  };
+
+  expect(resultFn).toThrow(/is not iterable/);
+});

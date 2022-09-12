@@ -1,0 +1,20 @@
+01- should follow the AAA patters
+    Arrange, Act, Assert
+02- only test your own code. like in frontend we have APIs related to DOM. we dont need to test the third party APIs. we can maximum test the response that they are producing.
+
+03- only test one thing or one behaviour
+
+04- focus on the essence of a test when arranging. like test the function with minimum amount of input or the test cases should not be  more complex. try to keep it simple.
+
+05- keep your number of assertions ("expects") low. one test should have one expects maximum. its a good habbit. but we can add more assertions when we are testing the similir behaviour. like we are passing multiple data types as input to check the behaviour of function
+
+
+
+///////////////////////////////
+
+what is one thing that we have to test?
+one thing means one feature or one behaviour. like validating input or transform it.
+
+
+///////////////////////////
+avoid to create more complex function.
