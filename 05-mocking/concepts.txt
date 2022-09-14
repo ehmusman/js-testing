@@ -1,0 +1,16 @@
+// Mocking, spies and side effects
+
+// what are side effects?
+// when our code tries to access the external file system of the machine for reading and writing purpose or calling an http request, this is called side effects.
+
+// whst is the problem with side effects?
+with side effects while testing we can change the production data that we have to avoid to change the production data. or we may accidently delete or update the data that we dont want to do that.
+
+
+// to avoid side effects we can use these approaches
+
+01- Spies and
+        //  wrappers around functions, or empty replacement for functions that allow you track if & how function is called. we can replace the original function with some dummy.
+02- Mocks
+        // a replacement for an API that may provide some test-specific behaviour instead
+
